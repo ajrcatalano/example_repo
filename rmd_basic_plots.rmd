@@ -1,0 +1,75 @@
+---
+title: "Simple document"
+author: AJ Catalano
+date: 28 October 2021
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+
+I'm an R Markdown document! 
+
+# Section 1
+
+Here's a **code chunk** that samples from 
+a _normal distribution_:
+
+```{r}
+samp = rnorm(100)
+length(samp)
+```
+
+# Section 2
+
+I can take the mean of the sample, too!
+The mean is `r mean(samp)`.
+
+Code below creates a data frame and generates a plot.
+
+"eval = FALSE" shows code without running it
+"echo = FALSE" runs code without showing the code
+"message = FALSE" shows only output
+"include = FALSE" acts as if code did not exist
+"collapse = TRUE" collapses all output into one place not separated by code chunks
+
+# Section 3
+
+#### Plots
+
+```{r plot_example}
+# comment for code chunk
+library(tidyverse)
+
+plot_df = tibble(
+  x = rnorm(500, mean = 2, sd = 4),
+  y = 3 - 4.2 * x + rnorm(500)
+)
+
+ggplot(plot_df, aes(x = x, y = y)) + geom_point()
+```
+This plot is neat. It shows a linear relationship.
+
+The data frame has `r nrow(plot_df)` rows.
+
+# Section 4
+
+#### Making lists
+
+Here is a list of things I like:
+
+* Techno
+* Synthesizers
+  * Analog
+  * Digital
+  * Modular
+* Drum machines
+
+#### Table construction
+
+Col 1 | Col 2
+----- | -----
+  a   |   b
+  c   |   d
+  e   |   f
